@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services'; // This handles your studio's services
@@ -8,6 +8,11 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
+  useEffect(() => {
+    const introTimer = window.setTimeout(() => setShowIntro(false), 2200);
+    return () => window.clearTimeout(introTimer);
+  }, []);
   const movePixels = (event) => {
     event.currentTarget.style.setProperty('--mouse-x', `${event.clientX}px`);
     event.currentTarget.style.setProperty('--mouse-y', `${event.clientY}px`);
@@ -15,6 +20,12 @@ export default function App() {
 
   return (
     <div onPointerMove={movePixels} className={`site-shell ${isDarkMode ? 'site-dark' : 'site-light'}`}>
+      {showIntro && <div className="pixel-intro" aria-label="PixelForge loading">
+        <div className="intro-grid">{Array.from({ length: 36 }, (_, index) => <i key={index} />)}</div>
+        <p className="intro-name">PIXEL<span>FORGE</span></p>
+        <p className="intro-subtitle">SOFTWARE / ESTABLISHING CONNECTION</p>
+        <div className="intro-progress"><i /></div>
+      </div>}
       <div className="geo-shapes" aria-hidden="true">
         <i className="geo geo-orbit" />
         <i className="geo geo-blob" />
