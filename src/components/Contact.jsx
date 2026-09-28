@@ -20,12 +20,12 @@ const directContacts = [
 
 export default function Contact({ isDarkMode }) {
   return (
-    <section id="contact" className="py-24 scroll-mt-28">
+    <section id="contact" className="py-24 scroll-mt-28 scroll-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="mb-16">
-          <h2 className="mono-label mb-3">[ Direct Connection ]</h2>
-          <p className="text-4xl sm:text-5xl font-black tracking-[-.08em]">Get in Touch with the Founders</p>
+          <h2 className="mono-label mb-3">[ Contact Our Software Development Team ]</h2>
+          <p className="text-4xl sm:text-5xl font-black tracking-[-.08em]">Talk to Our Full-Stack Development Team</p>
           <p className="text-sm max-w-xl text-[var(--muted)] mt-4">
             Have a startup idea or enterprise software need? Reach out directly to either of us.
           </p>

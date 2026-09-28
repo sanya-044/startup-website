@@ -1,6 +1,17 @@
  import React from 'react';
 import { ShieldCheck } from 'lucide-react';
 
+const pixelLetters = {
+  S: ['11111','10000','10000','11111','00001','00001','11111'],
+  M: ['10001','11011','10101','10101','10001','10001','10001']
+};
+
+function PixelLetter({ letter }) {
+  return <div className={`founder-letter founder-letter-${letter.toLowerCase()}`} aria-hidden="true">
+    {pixelLetters[letter].flatMap((row, rowIndex) => [...row].map((pixel, columnIndex) => <i className={pixel === '1' ? 'on' : ''} key={`${rowIndex}-${columnIndex}`} />))}
+  </div>;
+}
+
 const founders = [
   {
     name: "Sanya Chauhan",
@@ -18,11 +29,12 @@ const founders = [
 
 export default function Founders({ isDarkMode }) {
   return (
-    <section id="founders" className="py-24 border-b section-rule scroll-mt-28 pixel-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="founders" className="py-24 border-b section-rule scroll-mt-28 pixel-bg scroll-reveal">
+      <div className="founders-letters" aria-hidden="true"><PixelLetter letter="S" /><PixelLetter letter="M" /></div>
+      <div className="founders-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
           <h2 className="mono-label mb-3">[ Leadership ]</h2>
-          <p className="text-4xl sm:text-5xl font-black tracking-[-.08em]">The Founders of PixelForge</p>
+          <p className="text-4xl sm:text-5xl font-black tracking-[-.08em]">Meet the Full-Stack Software Developers Behind PixelForge</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

@@ -34,17 +34,18 @@ const myProjects = [
 
 export default function Projects({ isDarkMode }) {
   return (
-    <section id="projects" className="py-24 border-b section-rule">
+    <section id="projects" className="py-24 border-b section-rule scroll-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <h2 className="mono-label mb-3">[ Selected Portfolio ]</h2>
-          <p className="text-4xl sm:text-5xl font-black tracking-[-.08em]">Featured Systems Built</p>
+          <h2 className="mono-label mb-3">[ Software Development Portfolio ]</h2>
+          <p className="text-4xl sm:text-5xl font-black tracking-[-.08em]">Featured Web Applications & Systems</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {myProjects.map((proj, index) => (
-            <div key={index} className="pixel-card flex flex-col justify-between p-7 group">
+            <div key={index} className="pixel-card project-card flex flex-col justify-between p-7 group">
               <div>
+                <div className={`project-preview preview-${index + 1} mb-7`} aria-hidden="true"><div className="preview-bar"><i/><i/><i/></div><div className="preview-content"><span/><span/><span/><b/></div></div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-mono font-semibold px-2.5 py-1 border border-[var(--line)] text-[var(--muted)]">
                     {proj.category}
